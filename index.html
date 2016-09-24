@@ -228,6 +228,29 @@ nil.to_i => 0
 				</section>
 
 				<section>
+					<h3>Listened carefully? Love b<span id="bonus">o</span>nuses?</h3>
+					<div id="bonus-section" style="display: none;">
+						<p align="left">Simply find proper methods for ...</p>
+						<ol>
+							<li>1.234567 => 1.23</li>
+							<li>'a' => 'b'</li>
+							<li>'vasyl' => 'VASYL'</li>
+							<li>'vasyl' => 'Vasyl'</li>
+							<li>'vasyl' => 'lysav'</li>
+							<li>:vasyl => 5</li>
+							<li>:vasyl => 'vasyl'</li>
+							<li>[1, 2, 3, 4] => 1</li>
+							<li>[1, 2, 3, 4] => 4</li>
+							<li>[1, 2, nil, 3, nil] => [1, 2, 3]</li>
+							<li>[1, 2, 3, 4] => [4, 3, 2, 1]</li>
+							<li>[1, 2, 3, 4] => [0, 1, 2, 3, 4]</li>
+							<li>{ a: 1, b: 2, c: 3} => [:a, :b, :c]</li>
+							<li>{ a: 1, b: 2, c: 3} => [1, 2, 3]</li>
+						</ol>
+					</div>
+				</section>
+
+				<section>
 					<h2>Other "Type-like" Classes</h2>
 						<a href="http://ruby-doc.org/core-2.2.0/Time.html" target="_blank">Time Class methods</a><br />
 						<a href="http://ruby-doc.org/stdlib-2.3.0/libdoc/date/rdoc/DateTime.html" target="_blank">DateTime Class methods</a>
@@ -459,6 +482,15 @@ fact(5) => 120
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+
+		<script>
+			var targetLetter = document.getElementById('bonus');
+			var targetSection = document.getElementById('bonus-section');
+			targetLetter.onclick = function () {
+				targetSection.style.display = "block";
+				window.dispatchEvent(new Event('resize'));
+			}
+		</script>
 
 		<script>
 
