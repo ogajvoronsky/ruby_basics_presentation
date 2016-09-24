@@ -70,16 +70,32 @@
 				</section>
 
 				<section>
-					<h2>Booleans</h2>
-					<p align="left"> Boolean data type - type of data, intended to represent the only 2 options: 'True' and 'False'. Mostly used inside the conditional statements.
+					<section>
+						<h2>Booleans</h2>
+						<p align="left"> Boolean data type - type of data, intended to represent the only 2 options: 'True' and 'False'. Mostly used inside the conditional statements.
 
-					<pre><code class="hljs" data-trim>
+						<pre><code class="hljs" data-trim>
 true.class => TrueClass
 false.class => FalseClass
 
 'Ruby awesome' if true => "Ruby awesome"
 'Ruby sucks' if false => nil
-					</code></pre>
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Try to guess</h2>
+						<pre><code>
+true    ? "true" : "false"
+false   ? "true" : "false"
+nil     ? "true" : "false"
+1       ? "true" : "false"
+0       ? "true" : "false"
+"false" ? "true" : "false"
+""      ? "true" : "false"
+[]      ? "true" : "false"
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -282,61 +298,73 @@ person2 => "Jim"
 				</section>
 
 				<section>
-					<h2>Expressions</h2>
-					<p align="left">One of the first differences with Ruby is that anything that can reasonably return a value does: just about everything is an expression. For example, the if and case statements both return the value of the last expression executed. Methods have the same behavior. In Ruby, many operators are actually method calls.</p>
-					<pre><code>
-a = b = c = 0 => 0
-(a.*(b)).+(c) <=> a * b + c
-a, b, c = 1, 2, 3
-a, b = b, a
-a, b = 1, 2, 3, 4 => a=1, b=2
-					</code></pre>
+					<section>
+						<h2>Expressions</h2>
+						<p align="left">One of the first differences with Ruby is that anything that can reasonably return a value does: just about everything is an expression. For example, the if and case statements both return the value of the last expression executed. Methods have the same behavior. In Ruby, many operators are actually method calls.</p>
+						<pre><code>
+	a = b = c = 0 => 0
+	(a.*(b)).+(c) <=> a * b + c
+	a, b, c = 1, 2, 3
+	a, b = b, a
+	a, b = 1, 2, 3, 4 => a=1, b=2
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Assignment operators</h2>
+						<p align="left">Assignment operator is the operator used for assignment.</p>
+						<pre><code>
+	+=   -=   *=   /=   =   %=   &=   |=   ^=   <<=   >>= &&= ||= **=
+						</code></pre>
+						<p align="left">No post- pre increment!</p>
+					</section>
+
+					<section>
+						<h2>Arithmetic operators</h2>
+						<p align="left">Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value.</p>
+						<pre><code>
+	+ - * / % **
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Comparison operators</h2>
+						<p align="left">Comparison operators are used in logical statements to determine equality or difference between variables or values.</p>
+						<pre><code>
+	== != > < <= >= <=> === .eql? .equal?
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Logical operators</h2>
+						<p align="left">Logical operators are used to determine the logic between variables or values.</p>
+						<pre><code>
+	and or not && || !
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Bitwise operators</h2>
+						<p align="left">Bitwise operator works on bits and perform bit by bit operation.</p>
+						<pre><code>
+	& | ^ ~ << >>
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
-					<h2>Assignment operators</h2>
-					<p align="left">Assignment operator is the operator used for assignment.</p>
-					<pre><code>
-+=   -=   *=   /=   =   %=   &=   |=   ^=   <<=   >>= &&= ||= **=
-					</code></pre>
-					<p align="left">No post- pre increment!</p>
-				</section>
+					<section>
+						<h2>Precedence (high to low)</h2>
+						<img src="img/operators.png" width="75%" alt="Operators" style="border: none" />
+					</section>
 
-				<section>
-					<h2>Arithmetic operators</h2>
-					<p align="left">Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value.</p>
-					<pre><code>
-+ - * / % **
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Comparison operators</h2>
-					<p align="left">Comparison operators are used in logical statements to determine equality or difference between variables or values.</p>
-					<pre><code>
-== != > < <= >= <=> === .eql? .equal?
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Logical operators</h2>
-					<p align="left">Logical operators are used to determine the logic between variables or values.</p>
-					<pre><code>
-and or not && || !
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Bitwise operators</h2>
-					<p align="left">Bitwise operator works on bits and perform bit by bit operation.</p>
-					<pre><code>
-& | ^ ~ << >>
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Precedence (high to low)</h2>
-					<img src="img/operators.png" width="75%" alt="Operators" style="border: none" />
+					<section>
+						<h2>Explain the difference</h2>
+						<pre><code>
+	result = true and false
+	result = true && false
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -355,50 +383,59 @@ end
 				</section>
 
 				<section>
-					<h2>Methods</h2>
-					<p align="left">Method is defined using the keyword def. Method names should begin with a lowercase letter or underscore, followed by letters, digits, and underscore. A method always returns a value and its name may end with one of ?, !, or =. Method definition:</p>
-					<pre><code class="hljs" data-trim>
-def my_method(arg1, arg2) # 2 arguments
-    # Code for the method would be here
-end
-					</code></pre>
-					<p align="left">Method invoking:</p>
-					<pre><code class="hljs" data-trim>
-my_method('first_param', 'second_param')
-					</code></pre>
+					<section>
+						<h2>Methods</h2>
+						<p align="left">Method is defined using the keyword def. Method names should begin with a lowercase letter or underscore, followed by letters, digits, and underscore. A method always returns a value and its name may end with one of ?, !, or =. Method definition:</p>
+						<pre><code class="hljs" data-trim>
+	def my_method(arg1, arg2) # 2 arguments
+	    # Code for the method would be here
+	end
+						</code></pre>
+						<p align="left">Method invoking:</p>
+						<pre><code class="hljs" data-trim>
+	my_method('first_param', 'second_param')
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Why do we need methods?</h2>
+						<ul>
+							<li class="fragment highlight-current-blue">They allow us to conceive of our program as a bunch of sub-steps. (Each sub-step can be its own method. When any program seems too hard, just break the overall program into sub-steps!);</li>
+							<li class="fragment highlight-current-blue">They allow us to reuse code instead of rewriting it;</li>
+							<li class="fragment highlight-current-blue">Methods allow us to keep our variable namespace clean (local variables only "live" as long as the methods does);</li>
+							<li class="fragment highlight-current-blue">Methods allow us to test small parts of our program in isolation from the rest. This is especially true in interpreted langaues, such as Ruby.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Steps to Writing a Method</h2>
+						<ul>
+							<li class="fragment highlight-current-blue">Understand the purpose of the method;</li>
+							<li class="fragment highlight-current-blue">Define the data that comes into the function from the caller (in the form of parameters);</li>
+							<li class="fragment highlight-current-blue">Define what data variables are needed inside the method to accomplish its goal;</li>
+							<li class="fragment highlight-current-blue">Decide on the set of steps that the program will use to accomplish this goal (the algorithm).</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					<h2>Why do we need methods?</h2>
-					<ul>
-						<li class="fragment highlight-current-blue">They allow us to conceive of our program as a bunch of sub-steps. (Each sub-step can be its own method. When any program seems too hard, just break the overall program into sub-steps!);</li>
-						<li class="fragment highlight-current-blue">They allow us to reuse code instead of rewriting it;</li>
-						<li class="fragment highlight-current-blue">Methods allow us to keep our variable namespace clean (local variables only "live" as long as the methods does);</li>
-						<li class="fragment highlight-current-blue">Methods allow us to test small parts of our program in isolation from the rest. This is especially true in interpreted langaues, such as Ruby.</li>
-					</ul>
-				</section>
+					<section>
+						<h2>Recursion</h2>
+						<img src="img/recursion.png" width="75%" alt="Recursion" style="border: none" />
+					</section>
 
-				<section>
-					<h2>Steps to Writing a Method</h2>
-					<ul>
-						<li class="fragment highlight-current-blue">Understand the purpose of the method;</li>
-						<li class="fragment highlight-current-blue">Define the data that comes into the function from the caller (in the form of parameters);</li>
-						<li class="fragment highlight-current-blue">Define what data variables are needed inside the method to accomplish its goal;</li>
-						<li class="fragment highlight-current-blue">Decide on the set of steps that the program will use to accomplish this goal (the algorithm).</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Recursion</h2>
-					<p align="left">A recursive methos is a method that calls itself. It can be used to replace cycle.</p>
-					<pre><code>
+					<section>
+						<h2>Classic example</h2>
+						<p align="left">A recursive methos is a method that calls itself. It can be used to replace cycle.</p>
+						<pre><code>
 def fact(n)
     return 1 if n.zero?
     n * fact(n-1)
 end
 
 fact(5) => 120
-					</code></pre>
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -408,11 +445,6 @@ fact(5) => 120
 						<li class="fragment grow">Loops & Iterators</li>
 						<li class="fragment grow">Ruby Style Guide</li>
 					</ul>
-				</section>
-
-				<section>
-					<h1>Some practice?</h1>
-					<img src="img/practice.jpg" width="75%" alt="Practice" style="border: none" />
 				</section>
 
 				<section>
