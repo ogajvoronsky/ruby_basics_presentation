@@ -85,15 +85,15 @@ false.class => FalseClass
 
 					<section>
 						<h2>Try to guess</h2>
-						<pre><code>
-true    ? "true" : "false"
-false   ? "true" : "false"
-nil     ? "true" : "false"
-1       ? "true" : "false"
-0       ? "true" : "false"
-"false" ? "true" : "false"
-""      ? "true" : "false"
-[]      ? "true" : "false"
+						<pre><code class="hljs" data-trim>
+true    ? 'true' : 'false'
+false   ? 'true' : 'false'
+nil     ? 'true' : 'false'
+1       ? 'true' : 'false'
+0       ? 'true' : 'false'
+'false' ? 'true' : 'false'
+''      ? 'true' : 'false'
+[]      ? 'true' : 'false'
 						</code></pre>
 					</section>
 				</section>
@@ -163,6 +163,9 @@ nil     ? "true" : "false"
 'ruby'.to_sym => :ruby
 
 'Ruby basics lecture' if current_lecture == :ruby_basics => "Ruby basics lecture"
+
+:ruby.object_id == :ruby.object_id => true
+'ruby'.object_id == 'ruby'.object_id => false
 					</code></pre>
 					<small><a href="http://ruby-doc.org/core-2.2.0/Symbol.html" target="_blank">Symbol Class methods</a></small>
 				</section>
@@ -299,7 +302,7 @@ save_name('Vasyl', string) => "Vasyl"
 				<section>
 					<h2>Variables</h2>
 					<p align="left">Variables are the memory locations which hold any data to be used. Each variable holds a reference to an object. A name is an uppercase letter, lowercase letter, or an underscore ("_"), followed by Name characters (any combination of upper- and lowercase letters, underscore and digits). You couldn't use any reserved in Ruby words for determining the name of the variable.</p>
-					<pre><code>
+					<pre><code class="hljs" data-trim>
 local_variable = 'local variable'
 CONSTANT = 'constant'
 $global_variable = 'global variable'
@@ -324,20 +327,20 @@ person2 => "Jim"
 					<section>
 						<h2>Expressions</h2>
 						<p align="left">One of the first differences with Ruby is that anything that can reasonably return a value does: just about everything is an expression. For example, the if and case statements both return the value of the last expression executed. Methods have the same behavior. In Ruby, many operators are actually method calls.</p>
-						<pre><code>
-	a = b = c = 0 => 0
-	(a.*(b)).+(c) <=> a * b + c
-	a, b, c = 1, 2, 3
-	a, b = b, a
-	a, b = 1, 2, 3, 4 => a=1, b=2
+						<pre><code class="hljs" data-trim>
+a = b = c = 0 => 0
+(a.*(b)).+(c) <=> a * b + c
+a, b, c = 1, 2, 3
+a, b = b, a
+a, b = 1, 2, 3, 4 => a=1, b=2
 						</code></pre>
 					</section>
 
 					<section>
 						<h2>Assignment operators</h2>
 						<p align="left">Assignment operator is the operator used for assignment.</p>
-						<pre><code>
-	+=   -=   *=   /=   =   %=   &=   |=   ^=   <<=   >>= &&= ||= **=
+						<pre><code class="hljs" data-trim>
++=   -=   *=   /=   =   %=   &=   |=   ^=   <<=   >>= &&= ||= **=
 						</code></pre>
 						<p align="left">No post- pre increment!</p>
 					</section>
@@ -345,32 +348,32 @@ person2 => "Jim"
 					<section>
 						<h2>Arithmetic operators</h2>
 						<p align="left">Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value.</p>
-						<pre><code>
-	+ - * / % **
+						<pre><code class="hljs" data-trim>
++ - * / % **
 						</code></pre>
 					</section>
 
 					<section>
 						<h2>Comparison operators</h2>
 						<p align="left">Comparison operators are used in logical statements to determine equality or difference between variables or values.</p>
-						<pre><code>
-	== != > < <= >= <=> === .eql? .equal?
+						<pre><code class="hljs" data-trim>
+== != > < <= >= <=> === .eql? .equal?
 						</code></pre>
 					</section>
 
 					<section>
 						<h2>Logical operators</h2>
 						<p align="left">Logical operators are used to determine the logic between variables or values.</p>
-						<pre><code>
-	and or not && || !
+						<pre><code class="hljs" data-trim>
+and or not && || !
 						</code></pre>
 					</section>
 
 					<section>
 						<h2>Bitwise operators</h2>
 						<p align="left">Bitwise operator works on bits and perform bit by bit operation.</p>
-						<pre><code>
-	& | ^ ~ << >>
+						<pre><code class="hljs" data-trim>
+& | ^ ~ << >>
 						</code></pre>
 					</section>
 				</section>
@@ -383,16 +386,16 @@ person2 => "Jim"
 
 					<section>
 						<h2>Explain the difference</h2>
-						<pre><code>
-	result = true and false
-	result = true && false
+						<pre><code class="hljs" data-trim>
+result = true and false
+result = true && false
 						</code></pre>
 					</section>
 				</section>
 
 				<section>
 					<h2>Operators overloading</h2>
-					<pre><code>
+					<pre><code class="hljs" data-trim>
 class Fixnum
     alias old_plus +
 
@@ -410,13 +413,14 @@ end
 						<h2>Methods</h2>
 						<p align="left">Method is defined using the keyword def. Method names should begin with a lowercase letter or underscore, followed by letters, digits, and underscore. A method always returns a value and its name may end with one of ?, !, or =. Method definition:</p>
 						<pre><code class="hljs" data-trim>
-	def my_method(arg1, arg2) # 2 arguments
-	    # Code for the method would be here
-	end
+def my_method(arg1, arg2='default') # 2 arguments, but 2nd already has a default value
+    # Code for the method would be here
+end
 						</code></pre>
 						<p align="left">Method invoking:</p>
 						<pre><code class="hljs" data-trim>
-	my_method('first_param', 'second_param')
+1. my_method('first_param', 'second_param')
+2. my_method('first_param')
 						</code></pre>
 					</section>
 
@@ -450,7 +454,7 @@ end
 					<section>
 						<h2>Classic example</h2>
 						<p align="left">A recursive methos is a method that calls itself. It can be used to replace cycle.</p>
-						<pre><code>
+						<pre><code class="hljs" data-trim>
 def fact(n)
     return 1 if n.zero?
     n * fact(n-1)
